@@ -1,34 +1,20 @@
-body {
+/* Reset e Estilos Base */
+* {
     margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
     font-family: Arial, sans-serif;
     color: #f8f8f8;
     background: linear-gradient(to bottom, #011a6e, #0044cc);
 }
-
-header {
-    color: #fff;
-    padding: 15px 20px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+header{
+    justify-content: space-around;
+}
+header img{
+    width: 50px;
 }
 
-
-
-nav button {
-    margin-left: 10px;
-    padding: 8px 12px;
-    border-radius: 5px;
-    background-color: #011a6e;
-    color: #ffff;
-    cursor: pointer;
-    font-size: 17px;
-    border: #011a6e;
-    font-weight: bold;
-
-}
-
-#logo {
-    height: 100px;
-}
 
