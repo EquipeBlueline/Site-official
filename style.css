@@ -66,6 +66,11 @@ header {
     width: 60px;
     border-radius: 50%;
 }
+#bem-vindo{
+    text-align: center;
+    margin-top: 20px;
+    font-size: 25px;
+}
 
 /* Botão hamburguer (sempre visível agora) */
 .menu-toggle {
