@@ -6,9 +6,10 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     color: #f8f8f8;
     background: linear-gradient(to bottom, #011a6e, #0044cc);
+    line-height: 1.6;
 }
 
 /* Cabeçalho */
@@ -18,9 +19,11 @@ header {
     justify-content: space-between;
     padding: 15px 20px;
     position: relative;
+    background: rgba(0, 0, 0, 0.3);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
 }
 
-/* Menu (inicialmente escondido) */
+/* Menu */
 .menu {
     display: none;
     position: absolute;
@@ -30,6 +33,7 @@ header {
     background: #011a6e;
     padding: 15px 0;
     text-align: center;
+    border-top: 2px solid #4da6ff;
 }
 
 .menu ul {
@@ -42,15 +46,16 @@ header {
 .menu ul li a {
     text-decoration: none;
     color: #f8f8f8;
+    font-size: 18px;
     font-weight: bold;
     transition: 0.3s;
 }
 
 .menu ul li a:hover {
-    color: #ffd700;
+    color: #4da6ff;
+    text-shadow: 0 0 8px #4da6ff;
 }
 
-/* Mostrar menu quando ativado */
 .menu.show {
     display: block;
 }
@@ -63,19 +68,82 @@ header {
 }
 
 .logo img {
-    width: 60px;
+    width: 70px;
     border-radius: 50%;
-}
-#bem-vindo{
-    text-align: center;
-    margin-top: 20px;
-    font-size: 25px;
+    border: 2px solid #4da6ff;
+    box-shadow: 0 0 10px #000;
 }
 
-/* Botão hamburguer (sempre visível agora) */
+/* Botão hamburguer */
 .menu-toggle {
     font-size: 28px;
     cursor: pointer;
     color: #fff;
     z-index: 1001;
+    transition: transform 0.3s;
+}
+
+.menu-toggle:hover {
+    transform: scale(1.1);
+    color: #4da6ff;
+}
+
+/* Conteúdo principal */
+main {
+    padding: 30px 10%;
+}
+
+#bem-vindo {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 32px;
+    font-weight: bold;
+    color: #4da6ff;
+    text-shadow: 2px 2px 6px #000;
+}
+
+/* Seções */
+.principal {
+    margin-top: 40px;
+    background: rgba(0, 0, 0, 0.25);
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.principal h2 {
+    color: #4da6ff;
+    margin-bottom: 10px;
+    font-size: 24px;
+    border-left: 5px solid #4da6ff;
+    padding-left: 10px;
+}
+
+.principal h3 {
+    margin-top: 15px;
+    color: #add8ff;
+}
+
+.principal p {
+    margin-bottom: 20px;
+    text-align: justify;
+}
+
+/* Imagens */
+.principal img {
+    max-width: 100%;
+    margin-top: 15px;
+    border-radius: 10px;
+    border: 2px solid #4da6ff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+}
+
+/* Rodapé */
+footer {
+    text-align: center;
+    padding: 15px;
+    background: rgba(0, 0, 0, 0.4);
+    margin-top: 30px;
+    font-size: 14px;
+    border-top: 2px solid #4da6ff;
 }
