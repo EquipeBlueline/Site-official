@@ -10,11 +10,67 @@ body {
     color: #f8f8f8;
     background: linear-gradient(to bottom, #011a6e, #0044cc);
 }
-header{
-    justify-content: space-around;
-}
-header img{
-    width: 50px;
+
+/* Cabeçalho */
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 20px;
+    position: relative;
 }
 
+/* Menu (inicialmente escondido) */
+.menu {
+    display: none;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    background: #011a6e;
+    padding: 15px 0;
+    text-align: center;
+}
 
+.menu ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.menu ul li a {
+    text-decoration: none;
+    color: #f8f8f8;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.menu ul li a:hover {
+    color: #ffd700;
+}
+
+/* Mostrar menu quando ativado */
+.menu.show {
+    display: block;
+}
+
+/* Logo central */
+.logo {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.logo img {
+    width: 60px;
+    border-radius: 50%;
+}
+
+/* Botão hamburguer (sempre visível agora) */
+.menu-toggle {
+    font-size: 28px;
+    cursor: pointer;
+    color: #fff;
+    z-index: 1001;
+}
