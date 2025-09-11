@@ -32,57 +32,99 @@
     </header>
 
     <main>
-        <nav>
-            <button onclick="mostrarCard('Equipes')">Equipes</button>
-            <button onclick="mostrarCard('Conquistas')">Conquistas</button>
-            <button onclick="mostrarCard('Parceiros')">Parceiros</button>
-            <button onclick="mostrarCard('Redes Sociais')">Redes Sociais</button>
+        <nav class="navigation-tabs">
+            <button onclick="mostrarCard('Equipes')" class="tab-button active">Equipes</button>
+            <button onclick="mostrarCard('Conquistas')" class="tab-button">Conquistas</button>
+            <button onclick="mostrarCard('Parceiros')" class="tab-button">Parceiros</button>
+            <button onclick="mostrarCard('Redes Sociais')" class="tab-button">Redes Sociais</button>
         </nav>
-    </main>
 
-    <main>
-        
-            <section id="EquipeFoto" class="card active">
-                <div class="foto-card">
-                    <img src="../imagens/IMG-20240923-WA0057.jpg" alt="Foto da Equipe">
-                </div>
-                <div class="card-text">
-                    <h2>BlueLine Equipe</h2>
-                    <p>Texto sobre a equipe, conquistas ou qualquer informação que desejar.</p>
+        <div class="content-container">
+            <section id="Equipes" class="card active">
+                <div class="card-content">
+                    <div class="foto-card">
+                        <img src="../imagens/IMG-20240923-WA0057.jpg" alt="Foto da Equipe">
+                    </div>
+                    <div class="card-text">
+                        <h2>BlueLine Equipe</h2>
+                        <p>A BlueLine é uma equipe de robótica formada por estudantes dedicados e apaixonados por tecnologia. Nossa equipe é composta por membros com diferentes habilidades, desde programação até mecânica, trabalhando juntos para criar soluções inovadoras em robótica.</p>
+                        <p>Nosso objetivo é representar nossa escola e cidade em competições nacionais e internacionais, sempre buscando excelência técnica e trabalho em equipe.</p>
+                    </div>
                 </div>
             </section>
-        </main>
-        
 
-        <section id="Conquistas" class="card">
-            <h2>Nossas Conquistas</h2>
-            <p>Ao longo dos anos, a BlueLine tem acumulado diversas conquistas em competições nacionais e
-                internacionais. Algumas de nossas principais conquistas incluem:</p>
-            <ul>
-                <li>Campeões da Competição Nacional de Robótica 2022</li>
-                <li>Segundo lugar na Competição Internacional de Robótica 2023</li>
-                <li>Prêmio de Inovação Tecnológica na Feira de Ciências 2021</li>
-            </ul>
-        </section>
+            <section id="Conquistas" class="card">
+                <div class="card-content">
+                    <h2>Nossas Conquistas</h2>
+                    <p>Ao longo dos anos, a BlueLine tem acumulado diversas conquistas em competições nacionais e internacionais. Algumas de nossas principais conquistas incluem:</p>
+                    <ul class="achievements-list">
+                        <li>🏆 Campeões da Competição Nacional de Robótica 2022</li>
+                        <li>🥈 Segundo lugar na Competição Internacional de Robótica 2023</li>
+                        <li>💡 Prêmio de Inovação Tecnológica na Feira de Ciências 2021</li>
+                        <li>🎯 Melhor Design de Robô na Regional SP 2023</li>
+                        <li>⚡ Prêmio de Eficiência Energética 2022</li>
+                    </ul>
+                </div>
+            </section>
 
-        <section id="Parceiros" class="card">
-            <h2>Nossos Parceiros</h2>
-            <p>A BlueLine conta com o apoio de diversos parceiros que acreditam em nosso trabalho e contribuem para
-                nosso crescimento. Alguns de nossos principais parceiros são:</p>
-            <ul>
-                <li><strong>Empresa X:</strong> Fornecedora de componentes eletrônicos.</li>
-                <li><strong>Instituição Y:</strong> Apoio financeiro e logístico para nossas competições.</li>
-                <li><strong>Comunidade Z:</strong> Voluntários que ajudam na organização de eventos e treinamentos.</li>
-            </ul>
-        </section>
+            <section id="Parceiros" class="card">
+                <div class="card-content">
+                    <h2>Nossos Parceiros</h2>
+                    <p>A BlueLine conta com o apoio de diversos parceiros que acreditam em nosso trabalho e contribuem para nosso crescimento. Alguns de nossos principais parceiros são:</p>
+                    <ul class="partners-list">
+                        <li><strong>🏢 Empresa X:</strong> Fornecedora de componentes eletrônicos e suporte técnico.</li>
+                        <li><strong>🏛️ Instituição Y:</strong> Apoio financeiro e logístico para nossas competições.</li>
+                        <li><strong>👥 Comunidade Z:</strong> Voluntários que ajudam na organização de eventos e treinamentos.</li>
+                        <li><strong>🎓 E.E. Prof. Amilcare Mattei:</strong> Nossa escola que nos apoia em todos os projetos.</li>
+                    </ul>
+                </div>
+            </section>
 
-        <section id="Redes Sociais" class="card">
-            <h2>Nossas Redes Sociais</h2>
-            <p>Acompanhe a BlueLine nas redes sociais para ficar por dentro das nossas novidades, eventos e
-                conquistas:</p>
-            <ul>
-
+            <section id="Redes Sociais" class="card">
+                <div class="card-content">
+                    <h2>Nossas Redes Sociais</h2>
+                    <p>Acompanhe a BlueLine nas redes sociais para ficar por dentro das nossas novidades, eventos e conquistas:</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link instagram">📷 Instagram</a>
+                        <a href="#" class="social-link facebook">📘 Facebook</a>
+                        <a href="#" class="social-link youtube">📺 YouTube</a>
+                        <a href="#" class="social-link email">📧 amblueline@gmail.com</a>
+                    </div>
+                </div>
+            </section>
+        </div>
     </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>BlueLine</h3>
+                <p>Equipe de robótica do Prof. Amilcare Mattei</p>
+                <p>Marília - SP</p>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Links Rápidos</h3>
+                <ul>
+                    <li><a href="../index.html">Início</a></li>
+                    <li><a href="sobre.html">Sobre</a></li>
+                    <li><a href="../projetos.html">Competições</a></li>
+                    <li><a href="../contato.html">Contato</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Contato</h3>
+                <p>📧 amblueline@gmail.com</p>
+                <p>📱 (14) 99999-9999</p>
+                <p>🏫 E.E. Prof. Amilcare Mattei</p>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>© 2025 BlueLine - Robótica Amílcare Mattei | Desenvolvido por estudantes</p>
+        </div>
+    </footer>
 
     <script src="sb.js"></script>
 
