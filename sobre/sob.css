@@ -1,4 +1,3 @@
-/* Reset e Estilos Base */
 * {
     margin: 0;
     padding: 0;
@@ -10,6 +9,33 @@ body {
     color: #f8f8f8;
     background: linear-gradient(to bottom, #011a6e, #0044cc);
     line-height: 1.6;
+}
+
+
+
+/* Cabeçalho */
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 20px;
+    position: relative;
+    background: rgba(0, 0, 0, 0.3);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+}
+
+
+.logo2 {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.logo2 img {
+    width: 70px;
+    border-radius: 50%;
+    border: 2px solid #4da6ff;
+    box-shadow: 0 0 10px #000;
 }
 
 /* Cabeçalho */
@@ -24,7 +50,7 @@ header {
 }
 
 /* Menu */
-.menu {
+.voltar {
     display: none;
     position: absolute;
     top: 70px;
@@ -36,14 +62,14 @@ header {
     border-top: 2px solid #4da6ff;
 }
 
-.menu ul {
+.voltar ul {
     list-style: none;
     display: flex;
     flex-direction: column;
     gap: 15px;
 }
 
-.menu ul li a {
+.voltar ul li a {
     text-decoration: none;
     color: #f8f8f8;
     font-size: 18px;
@@ -51,27 +77,13 @@ header {
     transition: 0.3s;
 }
 
-.menu ul li a:hover {
+.voltar ul li a:hover {
     color: #4da6ff;
     text-shadow: 0 0 8px #4da6ff;
 }
 
-.menu.show {
+.voltar.show {
     display: block;
-}
-
-/* Logo central */
-.logo {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-.logo img {
-    width: 70px;
-    border-radius: 50%;
-    border: 2px solid #4da6ff;
-    box-shadow: 0 0 10px #000;
 }
 
 /* Botão hamburguer */
@@ -89,57 +101,37 @@ header {
 }
 
 /* Conteúdo principal */
-main {
-    padding: 30px 10%;
+.card {
+    display: none;
+}
+.card.active {
+    display: block;
 }
 
-#bem-vindo {
+
+main nav {
     text-align: center;
-    margin-top: 20px;
-    font-size: 32px;
+    margin: 13px ;
+}
+
+main nav button {
+    border-radius: 20px;
+    padding: 8px 15px;
+    background: #0044cc;
+    color: #fff;
+    border: none;
+    font-size: 18px;
     font-weight: bold;
-    color: #4da6ff;
-    text-shadow: 2px 2px 6px #000;
+    transition: background 0.3s, transform 0.2s;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    margin: 13px;
 }
 
-/* Seções */
-.principal {
-    margin-top: 40px;
-    background: rgba(0, 0, 0, 0.25);
-    padding: 25px;
-    border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-}
-
-.principal h2 {
-    color: #4da6ff;
-    margin-bottom: 10px;
-    font-size: 24px;
-    border-left: 5px solid #4da6ff;
-    padding-left: 10px;
+main nav button:hover {
+    background: #4da6ff;
+    color: #011a6e;
+    transform: scale(1.05);
 }
 
 
-.principal p {
-    margin-bottom: 20px;
-    text-align: justify;
-}
 
-/* Imagens */
-.principal img {
-    max-width: 100%;
-    margin-top: 15px;
-    border-radius: 10px;
-    border: 2px solid #4da6ff;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
-}
-
-/* Rodapé */
-footer {
-    text-align: center;
-    padding: 15px;
-    background: rgba(0, 0, 0, 0.4);
-    margin-top: 300px;
-    font-size: 14px;
-    border-top: 2px solid #4da6ff;
-}

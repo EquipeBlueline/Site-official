@@ -1,0 +1,91 @@
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="sob.css">
+    <link rel="shortcut icon" href="../imagens/logo.jpg" type="image/x-icon">
+    <title>BlueLine</title>
+</head>
+
+<body>
+    <header>
+        <!-- Botão hamburguer -->
+        <div class="menu-toggle" id="menu-toggle">
+            ☰
+        </div>
+
+        <!-- Menu -->
+        <nav class="voltar" id="voltar">
+            <ul>
+                <li><a href="../index.html">Início</a></li>
+                <li><a href="sobre.html">Sobre</a></li>
+                <li><a href="../projetos.html">Competições</a></li>
+                <li><a href="../contato.html">Contato</a></li>
+            </ul>
+        </nav>
+
+        <!-- Logo -->
+        <div class="logo2">
+            <img src="../imagens/logo.jpg" alt="Logo Blue Line">
+        </div>
+    </header>
+
+    <main>
+        <nav>
+            <button onclick="mostrarCard('Equipes')">Equipes</button>
+            <button onclick="mostrarCard('Conquistas')">Conquistas</button>
+            <button onclick="mostrarCard('Parceiros')">Parceiros</button>
+            <button onclick="mostrarCard('Redes Sociais')">Redes Sociais</button>
+        </nav>
+    </main>
+
+    <main>
+        
+            <section id="EquipeFoto" class="card active">
+                <div class="foto-card">
+                    <img src="../imagens/IMG-20240923-WA0057.jpg" alt="Foto da Equipe">
+                </div>
+                <div class="card-text">
+                    <h2>BlueLine Equipe</h2>
+                    <p>Texto sobre a equipe, conquistas ou qualquer informação que desejar.</p>
+                </div>
+            </section>
+        </main>
+        
+
+        <section id="Conquistas" class="card">
+            <h2>Nossas Conquistas</h2>
+            <p>Ao longo dos anos, a BlueLine tem acumulado diversas conquistas em competições nacionais e
+                internacionais. Algumas de nossas principais conquistas incluem:</p>
+            <ul>
+                <li>Campeões da Competição Nacional de Robótica 2022</li>
+                <li>Segundo lugar na Competição Internacional de Robótica 2023</li>
+                <li>Prêmio de Inovação Tecnológica na Feira de Ciências 2021</li>
+            </ul>
+        </section>
+
+        <section id="Parceiros" class="card">
+            <h2>Nossos Parceiros</h2>
+            <p>A BlueLine conta com o apoio de diversos parceiros que acreditam em nosso trabalho e contribuem para
+                nosso crescimento. Alguns de nossos principais parceiros são:</p>
+            <ul>
+                <li><strong>Empresa X:</strong> Fornecedora de componentes eletrônicos.</li>
+                <li><strong>Instituição Y:</strong> Apoio financeiro e logístico para nossas competições.</li>
+                <li><strong>Comunidade Z:</strong> Voluntários que ajudam na organização de eventos e treinamentos.</li>
+            </ul>
+        </section>
+
+        <section id="Redes Sociais" class="card">
+            <h2>Nossas Redes Sociais</h2>
+            <p>Acompanhe a BlueLine nas redes sociais para ficar por dentro das nossas novidades, eventos e
+                conquistas:</p>
+            <ul>
+
+    </main>
+
+    <script src="sb.js"></script>
+
+</body>
+
+</html>
