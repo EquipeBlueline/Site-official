@@ -10,6 +10,9 @@ body {
     color: #f8f8f8;
     background: linear-gradient(to bottom, #011a6e, #0044cc);
     line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 /* Cabeçalho */
@@ -91,6 +94,7 @@ header {
 /* Conteúdo principal */
 main {
     padding: 30px 10%;
+    flex: 1;
 }
 
 #bem-vindo {
@@ -136,10 +140,65 @@ main {
 
 /* Rodapé */
 footer {
-    text-align: center;
-    padding: 15px;
-    background: rgba(0, 0, 0, 0.4);
-    margin-top: 300px;
-    font-size: 14px;
+    background: rgba(0, 0, 0, 0.6);
     border-top: 2px solid #4da6ff;
+    margin-top: 50px;
 }
+
+.footer-content {
+    display: flex;
+    justify-content: space-around;
+    padding: 40px 20px;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 250px;
+    text-align: center;
+}
+
+.footer-section h3 {
+    color: #4da6ff;
+    margin-bottom: 15px;
+    font-size: 18px;
+    text-shadow: 0 0 5px #4da6ff;
+}
+
+.footer-section p {
+    margin-bottom: 8px;
+    font-size: 14px;
+    color: #e0e0e0;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 8px;
+}
+
+.footer-section ul li a {
+    color: #e0e0e0;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-section ul li a:hover {
+    color: #4da6ff;
+    text-shadow: 0 0 5px #4da6ff;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.8);
+    border-top: 1px solid #4da6ff;
+    font-size: 14px;
+    color: #b0b0b0;
+}
+
+
