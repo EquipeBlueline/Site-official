@@ -1,35 +1,21 @@
-// Função para configurar o menu dropdown
-function setupMenuDropdown() {
-    const menuButton = document.getElementById('menuButton');
+// Funcionalidades extras para o menu (complementa o script principal)
+function setupMenuExtras() {
     const menuDropdown = document.getElementById('menuDropdown');
     
-    if (menuButton && menuDropdown) {
-        menuButton.addEventListener('click', function(e) {
-            e.stopPropagation();
-            menuDropdown.classList.toggle('active');
-        });
-
-        // Fecha o menu quando clicar fora
-        document.addEventListener('click', function(e) {
-            if (!menuButton.contains(e.target) && !menuDropdown.contains(e.target)) {
+    if (menuDropdown) {
+        // Fecha o menu quando pressionar a tecla Escape
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && menuDropdown.classList.contains('active')) {
                 menuDropdown.classList.remove('active');
             }
-        });
-
-        // Fecha o menu quando clicar em um item
-        const menuItems = menuDropdown.querySelectorAll('.menu-item');
-        menuItems.forEach(item => {
-            item.addEventListener('click', function() {
-                menuDropdown.classList.remove('active');
-            });
         });
     }
 }
 
 // Tabs simples
 document.addEventListener('DOMContentLoaded', () => {
-    // Configurar menu dropdown
-    setupMenuDropdown();
+    // Configurar funcionalidades extras do menu
+    setupMenuExtras();
     
     // Configurar tabs
     const buttons = Array.from(document.querySelectorAll('.tab-button'));

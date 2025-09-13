@@ -156,7 +156,24 @@
         </div>
     </footer>
 
-    <script src="../script.js"></script>
+    
     <script src="comp.js"></script>
+    
+    <!-- Teste direto do menu -->
+    <script>
+        // Teste adicional para garantir que o menu funcione
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuButton = document.getElementById('menuButton');
+            const menuDropdown = document.getElementById('menuDropdown');
+            
+            if (menuButton && menuDropdown) {
+                menuButton.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    menuDropdown.classList.toggle('active');
+                });
+            }
+        });
+    </script>
 </body>
 </html>
