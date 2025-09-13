@@ -200,7 +200,7 @@ main {
 }
 
 .foto-card img {
-    max-width: 65%;
+    max-width: 100%;
     height: auto;
     border-radius: 15px;
     border: 3px solid #4da6ff;
@@ -339,18 +339,29 @@ footer {
     display: flex;
     align-items: center;
     gap: 32px;
+    flex-direction: row;
+}
+
+.card-horizontal .foto-card {
+    flex: 0 0 auto;
+    order: 1;
 }
 
 .card-horizontal .foto-card img {
     max-width: 220px;
+    width: 100%;
+    height: auto;
     border-radius: 15px;
     border: 3px solid #4da6ff;
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
 }
 
 .card-horizontal .card-text {
-    color: #000;
+    flex: 1;
+    order: 2;
+    color: #e0e0e0;
     font-size: 1.1rem;
+    text-align: left;
 }
 
 /* Responsividade */
@@ -389,6 +400,26 @@ footer {
 
     .footer-section {
         min-width: auto;
+    }
+
+    /* Layout responsivo para foto e texto */
+    .card-horizontal {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+    }
+
+    .card-horizontal .foto-card {
+        order: 1;
+    }
+
+    .card-horizontal .card-text {
+        order: 2;
+        text-align: center;
+    }
+
+    .card-horizontal .foto-card img {
+        max-width: 280px;
     }
 }
 
