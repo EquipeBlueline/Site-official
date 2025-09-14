@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="cont.css" />
+    <link rel="shortcut icon" href="../imagens/logo.jpg" type="image/x-icon">
+    <title>Contato - BlueLine</title>
+</head>
+
+<body>
+    <header>
+        <div class="menu-toggle" id="menuButton">
+            ☰
+        </div>
+
+        <nav class="menu" id="menuDropdown">
+            <ul>
+                <li><a href="../index.html" class="menu-item">Início</a></li>
+                <li><a href="../sobre/sobre.html" class="menu-item">Sobre</a></li>
+                <li><a href="../comp/competi.html" class="menu-item">Competições</a></li>
+                <li><a href="contatos.html" class="menu-item">Contato</a></li>
+            </ul>
+        </nav>
+
+        <div class="logo">
+            <img src="../imagens/logo.jpg" alt="Logo Blue Line">
+        </div>
+    </header>
+
+    <main>
+        <h1 id="bem-vindo">Entre em Contato</h1>
+
+        <section class="contact-info">
+            <h2>Informações de Contato</h2>
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <div class="contact-icon">📧</div>
+                    <h3>E-mail</h3>
+                    <p>amblueline@gmail.com</p>
+                    <a href="mailto:amblueline@gmail.com" class="contact-link">Enviar E-mail</a>
+                </div>
+
+                <div class="contact-card">
+                    <div class="contact-icon">📱</div>
+                    <h3>Telefone</h3>
+                    <p>(14) 98232-2271</p>
+                    <a href="tel:+5514982322271" class="contact-link">Ligar</a>
+                </div>
+
+                <div class="contact-card">
+                    <div class="contact-icon">🏫</div>
+                    <h3>Escola</h3>
+                    <p>E.E. Prof. Amilcare Mattei</p>
+                    <p>Marília - SP</p>
+                </div>
+
+                <div class="contact-card">
+                    <div class="contact-icon">📍</div>
+                    <h3>Localização</h3>
+                    <p>Marília, São Paulo</p>
+                    <p>Brasil</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="contact-form">
+            <h2>Envie uma Mensagem</h2>
+            <form id="contactForm">
+                <div class="form-group">
+                    <label for="name">Nome Completo</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">E-mail</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="subject">Assunto</label>
+                    <select id="subject" name="subject" required>
+                        <option value="">Selecione um assunto</option>
+                        <option value="geral">Informações Gerais</option>
+                        <option value="competicao">Competições</option>
+                        <option value="doacao">Doação</option>
+                        <option value="colaboracao">Colaboração</option>
+                        <option value="parceria">Parceria</option>
+                        <option value="outro">Outro</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Mensagem</label>
+                    <textarea id="message" name="message" rows="5" required placeholder="Digite sua mensagem aqui..."></textarea>
+                </div>
+
+                <button type="submit" class="submit-btn">Enviar Mensagem</button>
+            </form>
+        </section>
+
+        <section class="support-section">
+            <h2>Como Apoiar a BlueLine</h2>
+            <div class="support-grid">
+                <div class="support-card">
+                    <div class="support-icon">💰</div>
+                    <h3>Doações</h3>
+                    <p>Ajude-nos a manter nossos projetos e competições. Sua contribuição é fundamental para o crescimento da equipe.</p>
+                    <div class="donation-info">
+                        <h4>Formas de Doação:</h4>
+                        <ul>
+                            <li>PIX: amblueline@gmail.com</li>
+                            <li>Transferência bancária</li>
+                            <li>Doação de materiais</li>
+                        </ul>
+                    </div>
+                    <button class="support-btn" onclick="showDonationModal()">Fazer Doação</button>
+                </div>
+
+                <div class="support-card">
+                    <div class="support-icon">🤝</div>
+                    <h3>Colaboração</h3>
+                    <p>Seja um colaborador do nosso site ou projeto. Sua expertise pode fazer a diferença!</p>
+                    <div class="collaboration-info">
+                        <h4>Áreas de Colaboração:</h4>
+                        <ul>
+                            <li>Desenvolvimento Web</li>
+                            <li>Design Gráfico</li>
+                            <li>Marketing Digital</li>
+                            <li>Mentoria Técnica</li>
+                        </ul>
+                    </div>
+                    <button class="support-btn" onclick="showCollaborationModal()">Quero Colaborar</button>
+                </div>
+
+                <div class="support-card">
+                    <div class="support-icon">🏢</div>
+                    <h3>Parcerias</h3>
+                    <p>Empresas e instituições podem se tornar parceiras da BlueLine e apoiar a educação em robótica.</p>
+                    <div class="partnership-info">
+                        <h4>Tipos de Parceria:</h4>
+                        <ul>
+                            <li>Patrocínio de Competições</li>
+                            <li>Fornecimento de Materiais</li>
+                            <li>Mentoria Empresarial</li>
+                            <li>Visibilidade da Marca</li>
+                        </ul>
+                    </div>
+                    <button class="support-btn" onclick="showPartnershipModal()">Ser Parceiro</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal de Doação -->
+    <div id="donationModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('donationModal')">&times;</span>
+            <h2>Fazer Doação</h2>
+            <div class="donation-options">
+                <div class="donation-method">
+                    <h3>PIX</h3>
+                    <p>Chave PIX: amblueline@gmail.com</p>
+                    <button class="copy-btn" onclick="copyToClipboard('amblueline@gmail.com')">Copiar Chave PIX</button>
+                </div>
+                <div class="donation-method">
+                    <h3>Transferência Bancária</h3>
+                    <p>Entre em contato conosco para obter os dados bancários.</p>
+                    <a href="mailto:amblueline@gmail.com" class="contact-link">Solicitar Dados</a>
+                </div>
+                <div class="donation-method">
+                    <h3>Doação de Materiais</h3>
+                    <p>Componentes eletrônicos, ferramentas, materiais de construção.</p>
+                    <a href="mailto:amblueline@gmail.com" class="contact-link">Lista de Materiais</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Colaboração -->
+    <div id="collaborationModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('collaborationModal')">&times;</span>
+            <h2>Quero Colaborar</h2>
+            <form id="collaborationForm">
+                <div class="form-group">
+                    <label for="collabName">Nome</label>
+                    <input type="text" id="collabName" name="collabName" required>
+                </div>
+                <div class="form-group">
+                    <label for="collabEmail">E-mail</label>
+                    <input type="email" id="collabEmail" name="collabEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="collabArea">Área de Interesse</label>
+                    <select id="collabArea" name="collabArea" required>
+                        <option value="">Selecione uma área</option>
+                        <option value="web">Desenvolvimento Web</option>
+                        <option value="design">Design Gráfico</option>
+                        <option value="marketing">Marketing Digital</option>
+                        <option value="mentoria">Mentoria Técnica</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="collabExperience">Experiência</label>
+                    <textarea id="collabExperience" name="collabExperience" rows="3" placeholder="Conte-nos sobre sua experiência..."></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Enviar Proposta</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal de Parceria -->
+    <div id="partnershipModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('partnershipModal')">&times;</span>
+            <h2>Ser Parceiro</h2>
+            <form id="partnershipForm">
+                <div class="form-group">
+                    <label for="partnerName">Nome da Empresa/Instituição</label>
+                    <input type="text" id="partnerName" name="partnerName" required>
+                </div>
+                <div class="form-group">
+                    <label for="partnerContact">Nome do Contato</label>
+                    <input type="text" id="partnerContact" name="partnerContact" required>
+                </div>
+                <div class="form-group">
+                    <label for="partnerEmail">E-mail</label>
+                    <input type="email" id="partnerEmail" name="partnerEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="partnerType">Tipo de Parceria</label>
+                    <select id="partnerType" name="partnerType" required>
+                        <option value="">Selecione o tipo</option>
+                        <option value="patrocinio">Patrocínio de Competições</option>
+                        <option value="materiais">Fornecimento de Materiais</option>
+                        <option value="mentoria">Mentoria Empresarial</option>
+                        <option value="visibilidade">Visibilidade da Marca</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="partnerMessage">Proposta</label>
+                    <textarea id="partnerMessage" name="partnerMessage" rows="4" placeholder="Descreva sua proposta de parceria..."></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Enviar Proposta</button>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>BlueLine</h3>
+                <p>Equipe de robótica do Prof. Amilcare Mattei</p>
+                <p>Marília - SP</p>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Links Rápidos</h3>
+                <ul>
+                    <li><a href="../index.html">Início</a></li>
+                    <li><a href="../sobre/sobre.html">Sobre</a></li>
+                    <li><a href="../comp/competi.html">Competições</a></li>
+                    <li><a href="contatos.html">Contato</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Contato</h3>
+                <p>amblueline@gmail.com</p>
+                <p>(14) 98232-2271</p>
+                <p>E.E. Prof. Amilcare Mattei</p>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>© 2025 BlueLine - Robótica Amílcare Mattei | Desenvolvido por estudantes</p>
+        </div>
+    </footer>
+
+    <script src="cont.js"></script>
+</body>
+
+</html>

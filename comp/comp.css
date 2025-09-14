@@ -2,6 +2,37 @@
 
 /* Reaproveita o layout base do site via ../style.css */
 
+/* Melhorias no menu dropdown */
+.menu-toggle {
+    position: relative;
+    z-index: 1002;
+    cursor: pointer;
+    user-select: none;
+}
+
+.menu {
+    z-index: 1001;
+}
+
+/* Debug: garantir que o menu seja visível quando ativo */
+.menu.active {
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+/* Garantir que o menu funcione corretamente em dispositivos móveis */
+@media (max-width: 768px) {
+    .menu {
+        position: fixed;
+        top: 70px;
+        left: 10px;
+        right: 10px;
+        width: auto;
+        min-width: auto;
+    }
+}
+
 main {
     flex: 1;
     padding: 30px 5%;
