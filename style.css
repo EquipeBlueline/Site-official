@@ -124,6 +124,30 @@ header {
     box-shadow: 0 0 10px #000;
 }
 
+/* Botão Acesso ADM no header */
+.adm-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: linear-gradient(135deg, #0a2a6e, #0044cc);
+    color: #ffffff;
+    text-decoration: none;
+    padding: 10px 14px;
+    border: 2px solid #4da6ff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    transition: transform 0.15s ease, box-shadow 0.2s ease, background 0.3s ease;
+    font-weight: 600;
+}
+
+.adm-button:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.6);
+    background: linear-gradient(135deg, #0d368d, #0059ff);
+}
+
+.adm-button:active { transform: translateY(0); }
+
 /* Botão hamburguer */
 .menu-toggle {
     font-size: 28px;
@@ -249,3 +273,32 @@ footer {
 }
 
 
+
+/* Posts feed */
+.posts-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin-top: 12px;
+}
+
+@media (min-width: 800px) {
+    .posts-container { grid-template-columns: 1fr 1fr; }
+}
+
+.post-card {
+    display: flex;
+    flex-direction: column;
+    background: rgba(0, 0, 0, 0.25);
+    border: 2px solid #4da6ff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.post-image { width: 100%; height: 220px; object-fit: cover; display: block; }
+
+.post-body { padding: 12px; }
+.post-title { margin: 0 0 4px; color: #4da6ff; }
+.post-date { margin: 0 0 8px; opacity: 0.8; font-size: 12px; }
+.post-content { margin: 0; white-space: pre-line; }

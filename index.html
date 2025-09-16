@@ -29,7 +29,7 @@
             <img src="imagens/logo.jpg" alt="Logo Blue Line">
         </div>
 
-        <a href="../acesso_adm/adm.html">Acesso ADM</a>
+        <a href="../acesso_adm/adm.html" class="adm-button" aria-label="Acesso administrativo">🔒 Acesso ADM</a>
 
     </header>
 
@@ -46,6 +46,11 @@
 
                 Mais do que uma equipe de robótica, a BlueLine é uma família, que cresce a cada desafio e conquista.</p>
 
+        </section>
+
+        <section class="principal" id="noticias">
+            <h2>Novidades</h2>
+            <div id="postsContainer" class="posts-container"></div>
         </section>
 
 
@@ -85,6 +90,37 @@
     </footer>
 
     <script src="script.js"></script>
+    <script>
+        // Renderização simples dos posts do localStorage
+        (function(){
+            function readPosts(){
+                try{ const raw = localStorage.getItem('blueline_posts'); return raw? JSON.parse(raw): []; }catch(_){ return []; }
+            }
+            function escapeHtml(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#039;'); }
+            function formatDate(d){ return new Date(d).toLocaleString('pt-BR', { dateStyle:'short', timeStyle:'short' }); }
+            function render(){
+                const container = document.getElementById('postsContainer');
+                if(!container) return;
+                const posts = readPosts().sort((a,b)=> b.createdAt - a.createdAt);
+                if(posts.length===0){ container.innerHTML = '<p>Ainda não há novidades publicadas.</p>'; return; }
+                container.innerHTML = posts.map(p => {
+                    const img = p.imageUrl ? `<img class="post-image" src="${p.imageUrl}" alt="imagem">` : '';
+                    return `
+                        <article class="post-card">
+                            ${img}
+                            <div class="post-body">
+                                <h3 class="post-title">${escapeHtml(p.title)}</h3>
+                                <p class="post-date">${formatDate(p.createdAt)}</p>
+                                <p class="post-content">${escapeHtml(p.content)}</p>
+                            </div>
+                        </article>
+                    `;
+                }).join('');
+            }
+            document.addEventListener('DOMContentLoaded', render);
+            window.addEventListener('blueline:posts:updated', render);
+        })();
+    </script>
 </body>
 
 </html>

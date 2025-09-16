@@ -3,25 +3,117 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="adm.css"> 
+    <link rel="stylesheet" href="adm.css">
     <link rel="stylesheet" href="../style.css">
-    <link rel="shortcut icon" href="../imagens/logo.jpg" type="image/x-icon"> 
-    <title>acesso ADM</title>
-</head>
+    <link rel="shortcut icon" href="../imagens/logo.jpg" type="image/x-icon">
+    <title>Acesso ADM</title>
+    <script defer src="adm.js"></script>
+    <script defer src="../script.js"></script>
+    <style>
+        /* Evita FOUC do painel antes do JS carregar */
+        .hidden-initial { display: none; }
+    </style>
+    </head>
 <body>
+    <header>
+        <div class="menu-toggle" id="menuButton">
+            ☰
+        </div>
+        <nav class="menu" id="menuDropdown">
+            <ul>
+                <li><a href="../index.html" class="menu-item">Início</a></li>
+                <li><a href="../sobre/sobre.html" class="menu-item">Sobre</a></li>
+                <li><a href="../comp/competi.html" class="menu-item">Competições</a></li>
+                <li><a href="../contatos/contatos.html" class="menu-item">Contato</a></li>
+            </ul>
+        </nav>
+        <div class="logo">
+            <img src="../imagens/logo.jpg" alt="Logo Blue Line">
+        </div>
+    </header>
 
-    <div>
+    <main class="adm-container">
         <h1>Acesso Administrativo</h1>
-        <form action="adm.html" method="post">
-            <label for="username">Usuário:</label>
-            <input type="text" id="username" name="username" required>
-            <br>
-            <label for="password">Senha:</label>
-            <input type="password" id="password" name="password" required>
-            <br>
-            <button type="submit">Entrar</button>
-        </form>
-    </div>
-    
+
+        <section id="loginSection" class="card-box">
+            <h2>Entrar</h2>
+            <form id="loginForm">
+                <div class="form-row">
+                    <label for="username">Usuário</label>
+                    <input type="text" id="username" required>
+                </div>
+                <div class="form-row">
+                    <label for="password">Senha</label>
+                    <input type="password" id="password" required>
+                </div>
+                <button type="submit" class="btn-primary">Entrar</button>
+                <p class="hint">Dica: use a senha definida no código para testes locais.</p>
+            </form>
+        </section>
+
+        <section id="panelSection" class="hidden-initial">
+            <div class="panel-header">
+                <h2>Painel do Administrador</h2>
+                <div class="panel-actions">
+                    <a href="../index.html" class="btn-secondary">Ver site</a>
+                    <button id="logoutButton" class="btn-danger">Sair</button>
+                </div>
+            </div>
+
+            <div class="grid-2">
+                <div class="card-box">
+                    <h3>Novo Post</h3>
+                    <form id="postForm">
+                        <div class="form-row">
+                            <label for="postTitle">Título</label>
+                            <input type="text" id="postTitle" maxlength="120" required>
+                        </div>
+                        <div class="form-row">
+                            <label for="postContent">Conteúdo</label>
+                            <textarea id="postContent" rows="5" maxlength="1200" required></textarea>
+                        </div>
+                        <div class="form-row">
+                            <label for="postImageUrl">URL da imagem (opcional)</label>
+                            <input type="url" id="postImageUrl" placeholder="https://...">
+                        </div>
+                        <button type="submit" class="btn-primary">Publicar</button>
+                    </form>
+                </div>
+
+                <div class="card-box">
+                    <h3>Publicações</h3>
+                    <div id="postsAdminList" class="posts-admin-list"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>BlueLine</h3>
+                <p>Equipe de robótica do Prof. Amilcare Mattei</p>
+                <p>Marília - SP</p>
+            </div>
+            <div class="footer-section">
+                <h3>Links Rápidos</h3>
+                <ul>
+                    <li><a href="../index.html">Início</a></li>
+                    <li><a href="../sobre/sobre.html">Sobre</a></li>
+                    <li><a href="../comp/competi.html">Competições</a></li>
+                    <li><a href="../contatos/contatos.html">Contato</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contato</h3>
+                <p> amblueline@gmail.com</p>
+                <p> (14) 98232-2271</p>
+                <p> E.E. Prof. Amilcare Mattei</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 BlueLine - Robótica Amílcare Mattei | Desenvolvido por estudantes</p>
+        </div>
+    </footer>
 </body>
 </html>
