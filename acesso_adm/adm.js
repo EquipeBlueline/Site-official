@@ -44,12 +44,61 @@
     function show(el) { el && (el.style.display = 'block'); }
     function hide(el) { el && (el.style.display = 'none'); }
 
+    // Toast helpers
+    function getAlertsRoot() {
+        return document.getElementById('admAlerts');
+    }
+    function showToast(type, title, message, options) {
+        const root = getAlertsRoot();
+        if (!root) return;
+        const duration = (options && options.duration) || 3000;
+        const el = document.createElement('div');
+        el.className = 'adm-toast ' + (type || 'info');
+        el.innerHTML = `
+            <button class="close" aria-label="Fechar">✕</button>
+            <p class="title">${escapeHtml(title || '')}</p>
+            <p class="message">${escapeHtml(message || '')}</p>
+            <div class="bar" style="animation-duration:${duration}ms"></div>
+        `;
+        root.appendChild(el);
+        const close = () => {
+            if (!el.parentNode) return;
+            el.parentNode.removeChild(el);
+        };
+        el.querySelector('.close').addEventListener('click', close);
+        setTimeout(close, duration + 150);
+    }
+
+    // Confirm modal helper
+    function confirmModal(title, message) {
+        return new Promise(resolve => {
+            const backdrop = document.createElement('div');
+            backdrop.className = 'adm-confirm-backdrop';
+            backdrop.innerHTML = `
+                <div class="adm-confirm">
+                    <h4>${escapeHtml(title || 'Confirmar')}</h4>
+                    <p>${escapeHtml(message || '')}</p>
+                    <div class="actions">
+                        <button class="btn-secondary">Cancelar</button>
+                        <button class="btn-danger">Confirmar</button>
+                    </div>
+                </div>
+            `;
+            document.body.appendChild(backdrop);
+            const cleanup = () => backdrop.parentNode && backdrop.parentNode.removeChild(backdrop);
+            const [btnCancel, btnOk] = backdrop.querySelectorAll('button');
+            btnCancel.addEventListener('click', () => { cleanup(); resolve(false); });
+            btnOk.addEventListener('click', () => { cleanup(); resolve(true); });
+            backdrop.addEventListener('click', (e) => { if (e.target === backdrop) { cleanup(); resolve(false); } });
+        });
+    }
+
     function renderAdminList() {
         const container = document.getElementById('postsAdminList');
         if (!container) return;
         const posts = readPosts().sort((a, b) => b.createdAt - a.createdAt);
         if (posts.length === 0) {
-            container.innerHTML = '<p>Sem publicações ainda.</p>';
+            container.innerHTML = '<div class="posts-admin-empty">\n  <p>Nenhuma publicação ainda.</p>\n  <p class="empty-hint">Crie um novo post ao lado para começar.</p>\n</div>';
             return;
         }
         container.innerHTML = posts.map(post => {
@@ -61,8 +110,10 @@
                         <p class="admin-post-title"><strong>${escapeHtml(post.title)}</strong></p>
                         <p class="admin-post-date">${formatDate(post.createdAt)}</p>
                     </div>
-                    <button class="btn-secondary btn-small" data-action="edit">Editar</button>
-                    <button class="btn-danger btn-small" data-action="delete">Excluir</button>
+                    <div class="admin-post-actions">
+                        <button class="btn-secondary btn-small" data-action="edit">Editar</button>
+                        <button class="btn-danger btn-small" data-action="delete">Excluir</button>
+                    </div>
                 </div>
             `;
         }).join('');
@@ -107,16 +158,20 @@
                 if (u === ADMIN_CONFIG.username && p === ADMIN_CONFIG.password) {
                     setSession(true);
                     handleLoginUI();
+                    showToast('success', 'Login realizado', 'Bem-vindo ao painel.');
                 } else {
-                    alert('Usuário ou senha inválidos');
+                    showToast('error', 'Falha no login', 'Usuário ou senha inválidos.');
                 }
             });
         }
 
         if (logoutButton) {
-            logoutButton.addEventListener('click', function () {
+            logoutButton.addEventListener('click', async function () {
+                const ok = await confirmModal('Sair do painel', 'Tem certeza que deseja sair?');
+                if (!ok) return;
                 setSession(false);
                 handleLoginUI();
+                showToast('info', 'Sessão encerrada', 'Você saiu do painel.');
             });
         }
 
@@ -139,7 +194,7 @@
                 writePosts(posts);
                 postForm.reset();
                 renderAdminList();
-                alert('Publicado com sucesso');
+                showToast('success', 'Publicado', 'Seu post foi publicado com sucesso.');
             });
         }
 
@@ -156,11 +211,13 @@
                 const idx = posts.findIndex(p => p.id === id);
                 if (idx === -1) return;
                 if (action === 'delete') {
-                    if (confirm('Excluir esta publicação?')) {
+                    confirmModal('Excluir publicação', 'Tem certeza que deseja excluir este item?').then(ok => {
+                        if (!ok) return;
                         posts.splice(idx, 1);
                         writePosts(posts);
                         renderAdminList();
-                    }
+                        showToast('success', 'Excluído', 'A publicação foi removida.');
+                    });
                 } else if (action === 'edit') {
                     const current = posts[idx];
                     const newTitle = prompt('Novo título:', current.title) || current.title;
@@ -169,6 +226,7 @@
                     posts[idx] = { ...current, title: newTitle.trim(), content: newContent.trim(), imageUrl: (newImage || '').trim() };
                     writePosts(posts);
                     renderAdminList();
+                    showToast('info', 'Post atualizado', 'As alterações foram salvas.');
                 }
             });
         }
