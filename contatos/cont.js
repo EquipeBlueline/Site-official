@@ -75,88 +75,102 @@ function copyToClipboard(text) {
 
 // Função para validar e enviar formulário de contato
 function handleContactForm(event) {
-    event.preventDefault();
-    
+    // Permitir que o FormSubmit processe o formulário naturalmente
     const formData = new FormData(event.target);
     const data = Object.fromEntries(formData);
     
     // Validação básica
     if (!data.name || !data.email || !data.subject || !data.message) {
+        event.preventDefault();
         alert('Por favor, preencha todos os campos obrigatórios.');
         return;
     }
     
-    // Simular envio do formulário
+    // Feedback visual durante o envio
     const submitBtn = event.target.querySelector('.submit-btn');
     const originalText = submitBtn.textContent;
     
     submitBtn.textContent = 'Enviando...';
     submitBtn.disabled = true;
     
+    // Mostrar notificação de sucesso
+    showNotification('Mensagem enviada com sucesso! Entraremos em contato em breve.', 'success');
+    
+    // Resetar botão após um tempo (caso não seja redirecionado)
     setTimeout(() => {
-        alert('Mensagem enviada com sucesso! Entraremos em contato em breve.');
-        event.target.reset();
         submitBtn.textContent = originalText;
         submitBtn.disabled = false;
-    }, 2000);
+    }, 3000);
 }
 
 // Função para validar e enviar formulário de colaboração
 function handleCollaborationForm(event) {
-    event.preventDefault();
-    
+    // Permitir que o FormSubmit processe o formulário naturalmente
     const formData = new FormData(event.target);
     const data = Object.fromEntries(formData);
     
     // Validação básica
     if (!data.collabName || !data.collabEmail || !data.collabArea) {
+        event.preventDefault();
         alert('Por favor, preencha todos os campos obrigatórios.');
         return;
     }
     
-    // Simular envio do formulário
+    // Feedback visual durante o envio
     const submitBtn = event.target.querySelector('.submit-btn');
     const originalText = submitBtn.textContent;
     
     submitBtn.textContent = 'Enviando...';
     submitBtn.disabled = true;
     
+    // Mostrar notificação de sucesso
+    showNotification('Proposta de colaboração enviada com sucesso! Analisaremos sua proposta e entraremos em contato.', 'success');
+    
+    // Fechar modal após envio
     setTimeout(() => {
-        alert('Proposta de colaboração enviada com sucesso! Analisaremos sua proposta e entraremos em contato.');
-        event.target.reset();
         closeModal('collaborationModal');
+    }, 1500);
+    
+    // Resetar botão após um tempo (caso não seja redirecionado)
+    setTimeout(() => {
         submitBtn.textContent = originalText;
         submitBtn.disabled = false;
-    }, 2000);
+    }, 3000);
 }
 
 // Função para validar e enviar formulário de parceria
 function handlePartnershipForm(event) {
-    event.preventDefault();
-    
+    // Permitir que o FormSubmit processe o formulário naturalmente
     const formData = new FormData(event.target);
     const data = Object.fromEntries(formData);
     
     // Validação básica
     if (!data.partnerName || !data.partnerContact || !data.partnerEmail || !data.partnerType) {
+        event.preventDefault();
         alert('Por favor, preencha todos os campos obrigatórios.');
         return;
     }
     
-    // Simular envio do formulário
+    // Feedback visual durante o envio
     const submitBtn = event.target.querySelector('.submit-btn');
     const originalText = submitBtn.textContent;
     
     submitBtn.textContent = 'Enviando...';
     submitBtn.disabled = true;
     
+    // Mostrar notificação de sucesso
+    showNotification('Proposta de parceria enviada com sucesso! Nossa equipe analisará sua proposta e retornará em breve.', 'success');
+    
+    // Fechar modal após envio
     setTimeout(() => {
-        alert('Proposta de parceria enviada com sucesso! Nossa equipe analisará sua proposta e retornará em breve.');
-        event.target.reset();
         closeModal('partnershipModal');
+    }, 1500);
+    
+    // Resetar botão após um tempo (caso não seja redirecionado)
+    setTimeout(() => {
         submitBtn.textContent = originalText;
         submitBtn.disabled = false;
-    }, 2000);
+    }, 3000);
 }
 
 // Função para fechar modais ao clicar fora
