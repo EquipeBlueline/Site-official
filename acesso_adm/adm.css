@@ -8,9 +8,10 @@
 .card-box {
     background: #0b1220;
     border: 1px solid rgba(255,255,255,0.08);
-    border-radius: 12px;
-    padding: 16px;
-    margin: 12px 0;
+    border-radius: 16px;
+    padding: 20px;
+    margin: 16px 0;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.35);
 }
 
 .grid-2 {
@@ -37,9 +38,21 @@ label { font-weight: 600; }
 input[type="text"], input[type="password"], input[type="url"], textarea {
     background: #0f1a2e;
     color: #e8eefc;
-    border: 1px solid rgba(255,255,255,0.12);
-    border-radius: 8px;
-    padding: 10px 12px;
+    border: 1px solid rgba(255,255,255,0.14);
+    border-radius: 12px;
+    padding: 12px 14px;
+    outline: none;
+    transition: border-color .2s ease, box-shadow .2s ease, background .2s ease;
+}
+
+input::placeholder, textarea::placeholder {
+    color: rgba(232, 238, 252, 0.55);
+}
+
+input:focus, textarea:focus {
+    border-color: rgba(59,130,246,0.7);
+    box-shadow: 0 0 0 3px rgba(37,99,235,0.25);
+    background: #102041;
 }
 
 textarea { resize: vertical; }
@@ -47,15 +60,22 @@ textarea { resize: vertical; }
 .btn-primary, .btn-secondary, .btn-danger {
     display: inline-block;
     border: none;
-    border-radius: 8px;
-    padding: 10px 14px;
+    border-radius: 12px;
+    padding: 12px 16px;
     cursor: pointer;
     color: #fff;
+    transition: transform .05s ease, filter .2s ease, box-shadow .2s ease;
 }
 
-.btn-primary { background: #2563eb; }
-.btn-secondary { background: #475569; text-decoration: none; }
-.btn-danger { background: #dc2626; }
+.btn-primary { background: linear-gradient(180deg, #2a6ef0, #215bd0); box-shadow: 0 6px 16px rgba(37,99,235,0.35); }
+.btn-secondary { background: #475569; text-decoration: none; box-shadow: 0 6px 14px rgba(71,85,105,0.35); }
+.btn-danger { background: linear-gradient(180deg, #ef4444, #dc2626); box-shadow: 0 6px 16px rgba(220,38,38,0.35); }
+
+.btn-primary:hover { filter: brightness(1.05); }
+.btn-secondary:hover { filter: brightness(1.03); }
+.btn-danger:hover { filter: brightness(1.05); }
+
+.btn-primary:active, .btn-secondary:active, .btn-danger:active { transform: translateY(1px); }
 
 .panel-header {
     display: flex;
@@ -73,10 +93,16 @@ textarea { resize: vertical; }
     display: flex;
     align-items: center;
     gap: 10px;
-    padding: 10px;
+    padding: 12px;
     background: #0f1a2e;
     border: 1px solid rgba(255,255,255,0.08);
-    border-radius: 8px;
+    border-radius: 12px;
+    transition: transform .12s ease, box-shadow .2s ease, border-color .2s ease;
+}
+
+.admin-post-item:hover {
+    border-color: rgba(255,255,255,0.16);
+    box-shadow: 0 10px 24px rgba(0,0,0,0.35);
 }
 
 .admin-post-thumb {
@@ -90,3 +116,14 @@ textarea { resize: vertical; }
 .btn-small { padding: 6px 10px; border-radius: 6px; }
 
 .hint { font-size: 12px; opacity: 0.7; }
+
+/* Login form layout refinements */
+#loginSection h2 { margin-top: 4px; }
+
+#loginForm .form-row { margin-bottom: 14px; }
+
+#loginForm .btn-primary { width: 100%; margin-top: 4px; }
+
+@media (min-width: 520px) {
+    #loginForm .btn-primary { width: auto; }
+}
