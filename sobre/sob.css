@@ -176,6 +176,66 @@ main {
     gap: 25px;
 }
 
+/* Grid para equipes */
+#Equipes .card-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+    gap: 30px;
+    align-items: start;
+}
+
+#Equipes .card-horizontal {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background: rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    border-radius: 15px;
+    border: 1px solid rgba(77, 166, 255, 0.3);
+    transition: all 0.3s ease;
+}
+
+#Equipes .card-horizontal:hover {
+    background: rgba(0, 0, 0, 0.3);
+    border-color: #4da6ff;
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(77, 166, 255, 0.2);
+}
+
+#Equipes .foto-card {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+#Equipes .foto-card img {
+    max-width: 100%;
+    width: 200px;
+    height: auto;
+    border-radius: 15px;
+    border: 3px solid #4da6ff;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
+    transition: transform 0.3s ease;
+}
+
+#Equipes .foto-card img:hover {
+    transform: scale(1.05);
+}
+
+#Equipes .card-text {
+    text-align: center;
+    color: #e0e0e0;
+    font-size: 1rem;
+}
+
+#Equipes .card-text h2 {
+    color: #4da6ff;
+    font-size: 24px;
+    margin-bottom: 15px;
+    text-shadow: 0 0 10px #4da6ff;
+}
+
 .card-content h2 {
     color: #4da6ff;
     font-size: 28px;
@@ -421,6 +481,16 @@ footer {
 
     .card-horizontal .foto-card img {
         max-width: 280px;
+    }
+
+    /* Grid responsivo para equipes */
+    #Equipes .card-content {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    #Equipes .foto-card img {
+        width: 250px;
     }
 }
 
