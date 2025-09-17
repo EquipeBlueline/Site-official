@@ -8,9 +8,10 @@
 .card-box {
     background: #0b1220;
     border: 1px solid rgba(255,255,255,0.08);
-    border-radius: 12px;
-    padding: 16px;
-    margin: 12px 0;
+    border-radius: 16px;
+    padding: 20px;
+    margin: 16px 0;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.35);
 }
 
 .grid-2 {
@@ -37,9 +38,21 @@ label { font-weight: 600; }
 input[type="text"], input[type="password"], input[type="url"], textarea {
     background: #0f1a2e;
     color: #e8eefc;
-    border: 1px solid rgba(255,255,255,0.12);
-    border-radius: 8px;
-    padding: 10px 12px;
+    border: 1px solid rgba(255,255,255,0.14);
+    border-radius: 12px;
+    padding: 12px 14px;
+    outline: none;
+    transition: border-color .2s ease, box-shadow .2s ease, background .2s ease;
+}
+
+input::placeholder, textarea::placeholder {
+    color: rgba(232, 238, 252, 0.55);
+}
+
+input:focus, textarea:focus {
+    border-color: rgba(59,130,246,0.7);
+    box-shadow: 0 0 0 3px rgba(37,99,235,0.25);
+    background: #102041;
 }
 
 textarea { resize: vertical; }
@@ -47,15 +60,22 @@ textarea { resize: vertical; }
 .btn-primary, .btn-secondary, .btn-danger {
     display: inline-block;
     border: none;
-    border-radius: 8px;
-    padding: 10px 14px;
+    border-radius: 12px;
+    padding: 12px 16px;
     cursor: pointer;
     color: #fff;
+    transition: transform .05s ease, filter .2s ease, box-shadow .2s ease;
 }
 
-.btn-primary { background: #2563eb; }
-.btn-secondary { background: #475569; text-decoration: none; }
-.btn-danger { background: #dc2626; }
+.btn-primary { background: linear-gradient(180deg, #2a6ef0, #215bd0); box-shadow: 0 6px 16px rgba(37,99,235,0.35); }
+.btn-secondary { background: #475569; text-decoration: none; box-shadow: 0 6px 14px rgba(71,85,105,0.35); }
+.btn-danger { background: linear-gradient(180deg, #ef4444, #dc2626); box-shadow: 0 6px 16px rgba(220,38,38,0.35); }
+
+.btn-primary:hover { filter: brightness(1.05); }
+.btn-secondary:hover { filter: brightness(1.03); }
+.btn-danger:hover { filter: brightness(1.05); }
+
+.btn-primary:active, .btn-secondary:active, .btn-danger:active { transform: translateY(1px); }
 
 .panel-header {
     display: flex;
@@ -69,14 +89,30 @@ textarea { resize: vertical; }
 
 .posts-admin-list { display: flex; flex-direction: column; gap: 10px; }
 
+.posts-admin-empty {
+    padding: 24px;
+    text-align: center;
+    border: 1px dashed rgba(255,255,255,0.18);
+    border-radius: 12px;
+    background: rgba(15,26,46,0.6);
+}
+
+.posts-admin-empty .empty-hint { opacity: .7; font-size: 13px; margin-top: 6px; }
+
 .admin-post-item {
     display: flex;
     align-items: center;
     gap: 10px;
-    padding: 10px;
+    padding: 12px;
     background: #0f1a2e;
     border: 1px solid rgba(255,255,255,0.08);
-    border-radius: 8px;
+    border-radius: 12px;
+    transition: transform .12s ease, box-shadow .2s ease, border-color .2s ease;
+}
+
+.admin-post-item:hover {
+    border-color: rgba(255,255,255,0.16);
+    box-shadow: 0 10px 24px rgba(0,0,0,0.35);
 }
 
 .admin-post-thumb {
@@ -84,9 +120,118 @@ textarea { resize: vertical; }
 }
 
 .admin-post-meta { flex: 1; }
-.admin-post-title { margin: 0; font-size: 16px; }
+.admin-post-title { margin: 0; font-size: 16px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .admin-post-date { margin: 2px 0 0; font-size: 12px; opacity: 0.75; }
+
+.admin-post-actions { display: flex; gap: 8px; align-items: center; }
 
 .btn-small { padding: 6px 10px; border-radius: 6px; }
 
-.hint { font-size: 12px; opacity: 0.7; }
+
+/* Login form layout refinements */
+#loginSection h2 { margin-top: 4px; }
+
+#loginForm .form-row { margin-bottom: 14px; }
+
+#loginForm .btn-primary { width: 100%; margin-top: 4px; }
+
+@media (min-width: 520px) {
+    #loginForm .btn-primary { width: auto; }
+}
+
+/* Alerts / Toasts */
+.adm-alerts {
+    position: fixed;
+    top: 16px;
+    right: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 1000;
+}
+
+.adm-toast {
+    min-width: 240px;
+    max-width: 360px;
+    background: #0f1a2e;
+    color: #e8eefc;
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 12px;
+    padding: 12px 14px 12px 44px;
+    box-shadow: 0 10px 24px rgba(0,0,0,0.35);
+    position: relative;
+    overflow: hidden;
+}
+
+.adm-toast::before {
+    content: '';
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+}
+
+.adm-toast.success { border-color: rgba(34,197,94,0.35); }
+.adm-toast.success::before { background: #22c55e; box-shadow: 0 0 0 6px rgba(34,197,94,0.18); }
+
+.adm-toast.error { border-color: rgba(239,68,68,0.35); }
+.adm-toast.error::before { background: #ef4444; box-shadow: 0 0 0 6px rgba(239,68,68,0.18); }
+
+.adm-toast.info { border-color: rgba(59,130,246,0.35); }
+.adm-toast.info::before { background: #3b82f6; box-shadow: 0 0 0 6px rgba(59,130,246,0.18); }
+
+.adm-toast .title { font-weight: 700; margin: 0 0 2px; font-size: 14px; }
+.adm-toast .message { margin: 0; font-size: 13px; opacity: .9; }
+.adm-toast .close {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: transparent;
+    border: none;
+    color: #e8eefc;
+    opacity: .7;
+    cursor: pointer;
+}
+
+.adm-toast .bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 3px;
+    background: rgba(255,255,255,0.25);
+    width: 100%;
+    transform-origin: left;
+    animation: toast-life linear forwards;
+}
+
+@keyframes toast-life {
+    from { transform: scaleX(1); }
+    to { transform: scaleX(0); }
+}
+
+/* Confirm modal */
+.adm-confirm-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.55);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1001;
+}
+
+.adm-confirm {
+    width: min(92vw, 420px);
+    background: #0b1220;
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 16px;
+    box-shadow: 0 18px 48px rgba(0,0,0,0.5);
+    padding: 16px;
+}
+
+.adm-confirm h4 { margin: 0 0 8px; }
+.adm-confirm p { margin: 0 0 16px; opacity: .9; }
+.adm-confirm .actions { display: flex; gap: 8px; justify-content: flex-end; }
