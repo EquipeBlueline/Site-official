@@ -555,3 +555,30 @@ footer {
         font-size: 20px;
     }
 }
+
+
+#partnershipModal .modal-content {
+    max-height: 80vh; /* máximo da tela visível */
+    overflow-y: auto; /* habilita rolagem se estourar */
+    min-height: 420px; /* altura mínima para não ficar pequeno demais */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+/* Garante espaçamento adequado do botão no formulário */
+#partnershipForm {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Em telas pequenas, ajusta o modal */
+@media (max-width: 768px) {
+    #partnershipModal .modal-content {
+        max-height: 90vh;
+        width: 98vw;
+        min-height: 350px;
+        padding-bottom: 12px; /* extra espaço para botão */
+    }
+}
